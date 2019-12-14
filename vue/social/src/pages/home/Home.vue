@@ -1,37 +1,55 @@
 <template>
-  <div class="">
-    <h2>Social</h2>
+  <SocialTemplate>
 
-    <div class="row">
-      <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title">Card Title</span>
-            <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
-          </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-            <a href="#">This is a link</a>
-          </div>
-        </div>
+    <span slot="menuesquerdo">
+      <div class="row valign-wrapper">
+        <Grid tamanho="4">
+          <img src="https://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+        </Grid>
+        <Grid tamanho="8">
+          <span class="black-text">
+            <h5>Maria</h5>
+            Add the "circle" class to it to make it appear circular.
+          </span>
+        </Grid>
       </div>
-    </div>
-  </div>
+    </span>
 
+    <span slot="principal">
+      <InputPost />
+
+      <CardConteudo
+        perfil="https://materializecss.com/images/yuna.jpg"
+        nome="Maria Silva"
+        data="10/10/2019 13:20">
+
+      <CardDetalhe titulo="Primeiro Post!"
+        img="https://materializecss.com/images/sample-1.jpg"
+        descricao="Este é o primeiro post desta incrivel rede social" />
+
+    </CardConteudo>
+    </span>
+
+  </SocialTemplate>
 </template>
 
 <script>
+import CardConteudo from '@/components/social/CardConteudo'
+import CardDetalhe from '@/components/social/CardDetalhe'
+import InputPost from '@/components/social/InputPost'
+import SocialTemplate from '@/templates/SocialTemplate'
+
 export default {
   name: 'Home',
   data () {
     return {
     }
+  },
+  components: {
+    CardConteudo,
+    CardDetalhe,
+    InputPost,
+    SocialTemplate
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
