@@ -37,6 +37,7 @@
 import CardConteudo from '@/components/social/CardConteudo'
 import CardDetalhe from '@/components/social/CardDetalhe'
 import InputPost from '@/components/social/InputPost'
+import Grid from '@/components/layouts/Grid'
 import SocialTemplate from '@/templates/SocialTemplate'
 
 export default {
@@ -49,7 +50,8 @@ export default {
     CardConteudo,
     CardDetalhe,
     InputPost,
-    SocialTemplate
+    SocialTemplate,
+    Grid
   }
 }
 </script>

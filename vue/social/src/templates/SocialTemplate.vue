@@ -3,8 +3,10 @@
     <header>
       <NavBar cor="blue darken-1" url="/" logo="ESCOLA XXIII">
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/login">Entrar</router-link></li>
-        <li><router-link to="/cadastro">Cadastre-se</router-link></li>
+        <li v-if="!usuario"><router-link to="/login">Entrar</router-link></li>
+        <li v-if="!usuario"><router-link to="/cadastro">Cadastre-se</router-link></li>
+        <li v-if="usuario"><router-link to="/perfil">{{usuario.name}}</router-link></li>
+        <li v-if="usuario"><a v-on:click="sair()">Sair</a></li>
       </NavBar>
     </header>
 
@@ -45,11 +47,29 @@ import CardMenu from '@/components/layouts/CardMenu'
 
 export default {
   name: 'SocialTemplate',
+  data () {
+    return {
+      usuario: false
+    }
+  },
   components: {
     NavBar,
     Footer,
     Grid,
     CardMenu
+  },
+  created () {
+    let usuarioLogado = sessionStorage.getItem('usuario')
+
+    if (usuarioLogado) {
+      this.usuario = JSON.parse(usuarioLogado)
+    }
+  },
+  methods: {
+    sair () {
+      sessionStorage.clear()
+      this.usuario = false
+    }
   }
 }
 </script>

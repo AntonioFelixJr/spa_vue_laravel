@@ -7,3 +7,5 @@ Route::middleware('auth:api')->get('/usuario', function (Request $request) {
 });
 
 Route::post('/cadastro', 'ControllerUser@store');
+
+Route::post('/login', 'ControllerUser@login');
